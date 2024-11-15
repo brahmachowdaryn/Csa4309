@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .form-container {
+            width: 300px;
+            margin: 100px auto;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(9, 182, 20, 0.1);
+            border-radius: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            color: #4CAF50;
+        }
+
+        body {
+            background-image: url("https://www.getharvest.com/hs-fs/hubfs/resources/harvest-gif-motivate.gif?width=720&name=harvest-gif-motivate.gif");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sign Up Form -->
+    <div id="signup-form" class="form-container">
+        <h2>Create an Account</h2>
+        <!-- Signup form -->
+        <form action="php/signup.php" method="POST">
+            <input type="text" name="Username" placeholder="Username" required>
+            <input type="password" name="Password" placeholder="Password" required>
+            <input type="email" name="Email" placeholder="Email" required>
+            <input type="text" name="PhoneNumber" placeholder="Phone Number" required>
+            <input type="date" name="DateOfBirth" required>
+            <button type="submit" name="signup">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="javascript:showLoginForm()">Login</a></p>
+    </div>
+
+    <!-- Login Form -->
+    <div id="login-form" class="form-container" style="display: none;">
+        <h2>Login</h2>
+        <form id="login" method="POST" action="php/login.php">
+            <input type="text" name="Username" placeholder="Username" required>
+            <input type="password" name="Password" placeholder="Password" required>
+            <button type="submit" name="login">Login</button>
+        </form>
+        <p>Don't have an account? <a href="javascript:showSignUpForm()">Sign Up</a></p>
+    </div>
+
+    <script>
+        // Show Sign Up Form
+        function showSignUpForm() {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('signup-form').style.display = 'block';
+        }
+
+        // Show Login Form
+        function showLoginForm() {
+            document.getElementById('signup-form').style.display = 'none';
+            document.getElementById('login-form').style.display = 'block';
+        }
+
+        // Redirect to tracker page on form submission (for demo purposes)
+        document.getElementById('signup').onsubmit = function(e) {
+            e.preventDefault(); // Prevents default form submission for demonstration
+            alert('Sign Up Successful!');
+            window.location.href = "traker.html"; // Redirect to tracker page
+        };
+
+        document.getElementById('login').onsubmit = function(e) {
+            e.preventDefault(); // Prevents default form submission for demonstration
+            alert('Login Successful!');
+            window.location.href = "traker.html"; // Redirect to tracker page
+        };
+    </script>
+
+</body>
+</html>
